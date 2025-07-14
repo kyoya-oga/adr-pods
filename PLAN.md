@@ -90,3 +90,36 @@ background ─▶ ConnectedDeviceService (Fg) + AutoReconnectWorker (WorkManager
 * **CAPod** – Wear OS implementation ideas.
 * **AirPodsLikeNormal** – root‑level gesture control.
 * Android documentation – BLE L2CAP, GATT, and foreground services.
+
+---
+
+## Implementation Review
+
+The current codebase includes skeleton implementations for BLE connectivity, the AAP packet utilities, and a basic Compose UI. Key components like `L2capManager`, `GattManager`, `PacketRouter`, and foreground/background services exist but many features remain incomplete.
+
+### Observed Issues
+
+- **Missing dependencies** for Kotlin Coroutines and WorkManager in the Gradle configuration.
+- The UI lacks actions to start scanning or initiate connections.
+- `PacketRouter` only handles a placeholder battery opcode.
+- Dependency injection is not yet set up (temporary factory used in `MainActivity`).
+- The Wear module is empty.
+
+## Improvement Plan
+
+1. **Add required libraries**
+   - Include `kotlinx-coroutines-android` and `androidx.work:work-runtime-ktx` in `libs.versions.toml` and reference them from `app/build.gradle.kts`.
+2. **Implement device discovery UI**
+   - Provide buttons to start/stop scanning with `BleScanner` and display available devices.
+   - Allow the user to select a device and trigger `ConnectionManager.connect`.
+3. **Expand packet handling**
+   - Implement parsing for noise control opcodes and other essential AAP commands in `PacketRouter`.
+4. **Introduce dependency injection**
+   - Replace the manual ViewModel factory with a lightweight DI framework (e.g., Hilt or Koin) for easier testing and modularity.
+5. **Background and auto-reconnect**
+   - Flesh out `ConnectedDeviceService` and `AutoReconnectWorker` to maintain and restore connections when the app is not in the foreground.
+6. **Prepare Wear module**
+   - Set up a minimal Wear OS module with Gradle configuration to host future Tile/Widget code.
+7. **Add unit tests**
+   - Cover `AapParser`, `AapBuilder`, and connection logic to ensure compatibility with different Android versions.
+
