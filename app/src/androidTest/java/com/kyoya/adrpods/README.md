@@ -1,0 +1,1 @@
+This directory contains the instrumentation tests for the adr-pods application.

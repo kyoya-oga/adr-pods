@@ -1,0 +1,1 @@
+This directory contains XML files that define values for the application, such as strings, colors, and styles.

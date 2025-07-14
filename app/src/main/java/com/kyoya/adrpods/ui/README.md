@@ -1,0 +1,1 @@
+This directory contains UI-related code, following the MVVM architecture. It includes Jetpack Compose screens, ViewModels, and UI state management.

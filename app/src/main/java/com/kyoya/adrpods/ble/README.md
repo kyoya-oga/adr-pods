@@ -1,0 +1,1 @@
+This directory is responsible for Bluetooth Low Energy (BLE) communication. It includes classes for managing L2CAP and GATT connections, as well as device scanning and auto-switching logic.

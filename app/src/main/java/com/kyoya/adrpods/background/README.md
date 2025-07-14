@@ -1,0 +1,1 @@
+This directory contains background processing components, such as the Foreground Service for maintaining the BLE connection and the WorkManager for auto-reconnection tasks.

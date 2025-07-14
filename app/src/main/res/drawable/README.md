@@ -1,0 +1,1 @@
+This directory contains drawable resources like icons and images.

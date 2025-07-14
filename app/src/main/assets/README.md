@@ -1,0 +1,1 @@
+This directory contains raw asset files, such as fonts or other data files.

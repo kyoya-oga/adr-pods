@@ -1,0 +1,1 @@
+This directory contains the main source code and resources for the application.

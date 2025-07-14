@@ -1,0 +1,1 @@
+This directory contains miscellaneous XML resources, such as preference screens or other configuration files.

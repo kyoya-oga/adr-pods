@@ -1,0 +1,1 @@
+This directory handles the Apple Accessory Protocol (AAP). It contains code for parsing and building AAP packets, and routing them to the appropriate handlers.

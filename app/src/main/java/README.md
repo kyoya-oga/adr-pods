@@ -1,0 +1,1 @@
+This directory contains the Java/Kotlin source code for the application.

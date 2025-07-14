@@ -1,0 +1,1 @@
+This directory contains instrumentation tests for the application.
