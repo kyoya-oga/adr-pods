@@ -60,6 +60,14 @@ core-aap  ──▶ AapParser • AapBuilder • PacketRouter
 background ─▶ ConnectedDeviceService (Fg) + AutoReconnectWorker (WorkManager)
 ```
 
+### Jetpack Compose UI Approach
+
+The entire user interface is implemented with **Jetpack Compose**. Core screens
+such as device discovery, connection status, and noise control are written as
+Composable functions using Material 3 components. Each screen exposes a preview
+to speed up iteration. Compose is also used for dark theme support and will
+power future Wear OS tiles.
+
 ---
 
 ## Key Technical Points
@@ -109,9 +117,9 @@ The current codebase includes skeleton implementations for BLE connectivity, the
 
 1. **Add required libraries**
    - Include `kotlinx-coroutines-android` and `androidx.work:work-runtime-ktx` in `libs.versions.toml` and reference them from `app/build.gradle.kts`.
-2. **Implement device discovery UI**
-   - Provide buttons to start/stop scanning with `BleScanner` and display available devices.
-   - Allow the user to select a device and trigger `ConnectionManager.connect`.
+2. **Implement device discovery UI with Compose**
+   - Build the scanning screen as a Composable with buttons to start/stop scanning and a list of nearby devices.
+   - Allow the user to select a device and trigger `ConnectionManager.connect` from the Composable UI.
 3. **Expand packet handling**
    - Implement parsing for noise control opcodes and other essential AAP commands in `PacketRouter`.
 4. **Introduce dependency injection**
@@ -119,7 +127,7 @@ The current codebase includes skeleton implementations for BLE connectivity, the
 5. **Background and auto-reconnect**
    - Flesh out `ConnectedDeviceService` and `AutoReconnectWorker` to maintain and restore connections when the app is not in the foreground.
 6. **Prepare Wear module**
-   - Set up a minimal Wear OS module with Gradle configuration to host future Tile/Widget code.
+   - Set up a minimal Wear OS module with Compose for Wear OS to host future Tile/Widget code.
 7. **Add unit tests**
    - Cover `AapParser`, `AapBuilder`, and connection logic to ensure compatibility with different Android versions.
 

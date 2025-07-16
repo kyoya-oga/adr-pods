@@ -60,6 +60,13 @@ core-aap  ──▶ AapParser • AapBuilder • PacketRouter
 background ─▶ ConnectedDeviceService (Fg) + AutoReconnectWorker (WorkManager)
 ```
 
+### Jetpack Compose UI Approach
+
+The entire user interface is built with **Jetpack Compose**. Each screen—
+including scanning, connection status, and noise control—is provided as a
+Composable using Material 3 components with previews for rapid iteration.
+This Compose setup handles dark theme support and will extend to Wear OS tiles.
+
 ---
 
 ## Key Technical Points
